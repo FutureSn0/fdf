@@ -6,7 +6,7 @@
 /*   By: aapryce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:57:40 by aapryce           #+#    #+#             */
-/*   Updated: 2023/11/28 13:55:46 by aapryce          ###   ########.fr       */
+/*   Updated: 2023/11/28 16:15:21 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include <mlx.h>
+# include "minilibx-linux/mlx.h"
 
 typedef struct	s_map_data
 {
@@ -41,5 +41,6 @@ char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strdup(const char *src);
 char	*ft_strchr(const char *str, int c);
+void	bresenham(float x, float y, float x1, float y1, fdf *data);
 
 #endif

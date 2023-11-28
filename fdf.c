@@ -6,12 +6,12 @@
 /*   By: aapryce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:15:44 by aapryce           #+#    #+#             */
-/*   Updated: 2023/11/28 14:44:22 by aapryce          ###   ########.fr       */
+/*   Updated: 2023/11/28 16:14:25 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "fdf.h"
+#include "minilibx-linux/mlx.h"
 
 int	main(int argc, char **argv)
 {
