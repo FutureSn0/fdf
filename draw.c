@@ -43,7 +43,7 @@ void	bresenham(float x, float y, float x1, float y1, t_map_data *data)
 	max = ab(mod(x_move), mod(y_move));
 	x_move /= max;
 	y_move /= max;
-	while ((int)(x - x1) || (int)(y = y1))
+	while ((int)(x - x1) || (int)(y - y1))
 	{
 		mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, 0xffffff);
 		x += x_move;
