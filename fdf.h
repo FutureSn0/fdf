@@ -6,7 +6,7 @@
 /*   By: aapryce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:57:40 by aapryce           #+#    #+#             */
-/*   Updated: 2023/11/28 16:15:21 by aapryce          ###   ########.fr       */
+/*   Updated: 2023/11/30 15:28:55 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strdup(const char *src);
 char	*ft_strchr(const char *str, int c);
-void	bresenham(float x, float y, float x1, float y1, fdf *data);
-
+void	bresenham(float x, float y, float x1, float y1, t_map_data *data);
+void	draw(t_map_data *data);
 #endif

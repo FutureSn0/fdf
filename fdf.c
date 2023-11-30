@@ -6,12 +6,19 @@
 /*   By: aapryce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:15:44 by aapryce           #+#    #+#             */
-/*   Updated: 2023/11/28 16:14:25 by aapryce          ###   ########.fr       */
+/*   Updated: 2023/11/30 15:47:16 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include "minilibx-linux/mlx.h"
+#include <stdio.h>
+
+int	deal_key(int key, void *data)
+{
+	printf("%d", key);
+	return (0);
+}
 
 int	main(int argc, char **argv)
 {
@@ -23,8 +30,14 @@ int	main(int argc, char **argv)
 		return (0);
 
 	data->mlx_ptr = mlx_init();
-	data->win_ptr = mlx_new_window(data->mlx_ptr, 1920, 1080, "fdf");
+	data->win_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "fdf");
+	data->zoom = 100;
 	
+	/*bresenham(10, 10, 600, 300, data);*/
+	draw(data);
 	mlx_key_hook(data->win_ptr, deal_key, NULL);
 	mlx_loop(data->mlx_ptr);
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	mlx_destroy_display(data->mlx_ptr);
+	free(data->mlx_ptr);
 }
