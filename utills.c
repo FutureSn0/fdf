@@ -12,6 +12,20 @@
 
 #include "fdf.h"
 
+float   mod(float i)
+{
+        if (i < 0)
+                return (-i);
+        return (i);
+}
+
+float   ab(float a, float b)
+{
+        if (a > b)
+                return (a);
+        return (b);
+}
+
 size_t	ft_wrdlen(const char *s, char c)
 {
 	size_t	res;

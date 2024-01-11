@@ -14,11 +14,11 @@
 #include "minilibx-linux/mlx.h"
 #include <stdio.h>
 
-int	deal_key(int key, void *data)
+/*int	deal_key(int key, t_map_data *data)
 {
 	printf("%d", key);
 	return (0);
-}
+}*/
 
 int	main(int argc, char **argv)
 {
@@ -31,13 +31,13 @@ int	main(int argc, char **argv)
 
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "fdf");
-	data->zoom = 100;
+	data->zoom = 50;
 	
-	/*bresenham(10, 10, 600, 300, data);*/
 	draw(data);
-	mlx_key_hook(data->win_ptr, deal_key, NULL);
+	/*mlx_key_hook(data->win_ptr, deal_key, NULL);*/
+	mlx_loop_hook(data->mlx_ptr, &no_event, &data);
+	mlx_key_hook(data->win_ptr, &win_close, &data);
 	mlx_loop(data->mlx_ptr);
-	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	mlx_destroy_display(data->mlx_ptr);
 	free(data->mlx_ptr);
 }

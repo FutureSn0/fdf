@@ -14,11 +14,21 @@
 # define FDF_H
 
 #include <stdlib.h>
-#include "../libft/libft.h"
+#include "libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include "minilibx-linux/mlx.h"
+# include <math.h>
+# include <X11/keysym.h>
+# define BUFFER_SIZE 1
+
+typedef struct s_point
+{
+	float	x;
+	float	y;
+	int	colour;
+} t_point;
 
 typedef struct	s_map_data
 {
@@ -43,4 +53,13 @@ char	*ft_strdup(const char *src);
 char	*ft_strchr(const char *str, int c);
 void	bresenham(float x, float y, float x1, float y1, t_map_data *data);
 void	draw(t_map_data *data);
+int	win_close(int keysym, t_map_data *data);
+float	mod(float i);
+float	ab(float a, float b);
+//int	colour(int z, int z1);//
+int     colour(t_point current, t_point start, t_point end, t_point delta);
+int     get_colour(t_point current, t_point start, t_point end, t_point delta);
+int     get_light(int start, int end, double percentage);
+int	no_event(void *data);
+
 #endif
