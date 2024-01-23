@@ -1,4 +1,4 @@
-NAME = fdf.a
+NAME = fdf
 
 CC = cc
 AR = ar
