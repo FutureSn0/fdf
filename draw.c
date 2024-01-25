@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aapryce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:08:24 by aapryce           #+#    #+#             */
-/*   Updated: 2024/01/23 15:57:19 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/01/24 18:37:25 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,29 +35,19 @@ void	bresenham(float x, float y, float x1, float y1, t_map_data *data)
 
 	z = data->z_axis[(int)y][(int)x];
 	z1 = data->z_axis[(int)y1][(int)x1];
-
 	x *= data->zoom;
 	y *= data->zoom;
 	x1 *= data->zoom;
 	y1 *= data->zoom;
-
-	t_point start = {x, y, 0xff0000};
-	t_point end = {x1, y1, 0x00ff00};
-	t_point current = {x, y, data->colour};
-	t_point delta = {x1 - x, y1 - y, 0};
-
 	data->colour = get_colour(current, start, end, delta);
-
 	third_dimension_layer(&x, &y, z);
 	third_dimension_layer(&x1, &y1, z1);
 	x += 350;
 	y += 350;
 	x1 += 350;
 	y1 += 350;
-	
 	x_move = x1 - x;
 	y_move = y1 - y;
-
 	max = ab(mod(x_move), mod(y_move));
 	x_move /= max;
 	y_move /= max;

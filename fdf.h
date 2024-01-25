@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aapryce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:57:40 by aapryce           #+#    #+#             */
-/*   Updated: 2024/01/23 16:04:14 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/01/24 18:19:39 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-#include <stdlib.h>
+# include <stdlib.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
@@ -24,52 +24,52 @@
 # define BUFFER_SIZE 1
 # define WIN_HEIGHT 1000
 # define WIN_LENGTH 1000
+# define ZOOM 1300
 
-typedef	struct s_mlx
+typedef struct s_mlx
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-} t_mlx;
+}	t_mlx;
 
-typedef	struct s_img_data
+typedef struct s_img_data
 {
 	void	*img_ptr;
 	void	*adress;
-	int	bpp;
-	int	line_len;
-	int	endian;
+	int		bpp;
+	int		line_len;
+	int		endian;
 	float	zoom;
-	int	colour;
-	int	win_x;
-	int	win_y;
-} t_img_data;
-
+	int		colour;
+	int		win_x;
+	int		win_y;
+}	t_img_data;
 
 typedef struct s_draw
 {
 
-} t_draw;
+}	t_draw;
 
-typedef struct	s_map_data
+typedef struct s_map_data
 {
 	int	x;
 	int	y;
 	int	**grid;
-} t_map_data;
+}	t_map_data;
 
-typedef struct	s_pixel
+typedef struct s_pixel
 {
 	int	x;
 	int	y;
 	int	z;
 	int	colour;
-} t_pixel;
+}	t_pixel;
 
 void	read_file(char *file, t_map_data *data);
-int	get_height(char *file);
-int	get_width(char *file);
+int		get_height(char *file);
+int		get_width(char *file);
 void	fill_z(int *z_line, char *line);
-int	grid_init(char *line, t_map_data *data, int fd);
+int		grid_init(char *line, t_map_data *data, int fd);
 
 size_t	ft_wrdlen(const char *s, char c);
 char	*get_next_line(int fd);
@@ -80,8 +80,8 @@ char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strdup(const char *src);
 char	*ft_strchr(const char *str, int c);
 
-int	win_close(int keysym, t_mlx *data);
-void    init_mlx(t_img_data *data, t_map_data *map);
+int		win_close(int keysym, t_mlx *data);
+void	init_mlx(t_img_data *data, t_map_data *map);
 
 /*
 void	bresenham(float x, float y, float x1, float y1, t_map_data *data);

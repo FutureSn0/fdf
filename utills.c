@@ -6,24 +6,24 @@
 /*   By: aapryce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 12:45:30 by aapryce           #+#    #+#             */
-/*   Updated: 2023/11/10 10:50:38 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/01/24 16:11:28 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-float   mod(float i)
+float	mod(float i)
 {
-        if (i < 0)
-                return (-i);
-        return (i);
+	if (i < 0)
+		return (-i);
+	return (i);
 }
 
-float   ab(float a, float b)
+float	ab(float a, float b)
 {
-        if (a > b)
-                return (a);
-        return (b);
+	if (a > b)
+		return (a);
+	return (b);
 }
 
 size_t	ft_wrdlen(const char *s, char c)

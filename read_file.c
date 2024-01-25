@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aapryce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 10:30:38 by aapryce           #+#    #+#             */
-/*   Updated: 2024/01/23 16:16:44 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/01/24 17:28:31 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,7 @@ void	read_file(char *file, t_map_data *data)
 	{
 		data->grid[i++] = (int *)malloc(sizeof(int) * (data->x + 1));
 		if (!data->grid)
-		{
 			return ;
-		}
 	}
 	fd = open(file, O_RDONLY);
 	line = get_next_line(fd);
