@@ -6,7 +6,7 @@
 /*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:40:07 by aapryce           #+#    #+#             */
-/*   Updated: 2024/01/23 16:17:31 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/01/25 17:11:51 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ void	init_mlx(t_img_data *data, t_map_data *map)
 	/*draw_line(data, 50, 50, 200, 200, 0xFFFFFF);*/
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, data->img_ptr, 0, 0);
 	mlx_key_hook(mlx->win_ptr, &win_close, mlx);
+	mlx_hook(mlx->win_ptr, 33, 0, &close_button, mlx);
 	mlx_loop(mlx->mlx_ptr);
 }

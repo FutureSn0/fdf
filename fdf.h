@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aapryce <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:57:40 by aapryce           #+#    #+#             */
-/*   Updated: 2024/01/24 18:19:39 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/01/25 15:45:51 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <fcntl.h>
 # include <math.h>
 # include <X11/keysym.h>
+# include <X11/X.h>
 # include "../libft/libft.h"
 # include "minilibx-linux/mlx.h"
 # define BUFFER_SIZE 1
@@ -47,7 +48,10 @@ typedef struct s_img_data
 
 typedef struct s_draw
 {
-
+	int	dx;
+	int	dy;
+	int	sx;
+	int	sy;
 }	t_draw;
 
 typedef struct s_map_data
@@ -81,6 +85,7 @@ char	*ft_strdup(const char *src);
 char	*ft_strchr(const char *str, int c);
 
 int		win_close(int keysym, t_mlx *data);
+int		close_button(t_mlx *data);
 void	init_mlx(t_img_data *data, t_map_data *map);
 
 /*
