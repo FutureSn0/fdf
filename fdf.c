@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aapryce <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:15:44 by aapryce           #+#    #+#             */
-/*   Updated: 2024/01/24 18:39:46 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/01/26 14:35:36 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include "minilibx-linux/mlx.h"
 
 int	main(int argc, char **argv)
 {

@@ -6,7 +6,7 @@
 /*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:57:40 by aapryce           #+#    #+#             */
-/*   Updated: 2024/01/25 15:45:51 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/01/26 16:30:53 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,9 @@ typedef struct s_img_data
 
 typedef struct s_draw
 {
-	int	dx;
-	int	dy;
-	int	sx;
-	int	sy;
+	float	x_move;
+	float	y_move;
+	int	max;
 }	t_draw;
 
 typedef struct s_map_data
