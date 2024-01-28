@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line_draw.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aapryce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 12:12:18 by aapryce           #+#    #+#             */
-/*   Updated: 2024/01/26 17:12:31 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/01/26 22:06:50 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,34 @@ t_draw	*init_draw(int x, int x1, int y, int y1)
 	draw->y_move /= draw->max;
 	return (draw);
 }
-/*
-void	my_mlx_pixel_put()
 
-void	pixel_put()
-*/
+void	my_mlx_pixel_put(t_img_data *data, t_pixel pixel)
+{
+	char	*dst;
+
+	dst = data->adress + (pixel.y + 200) * data->line_len
+		+(pixel.x + 1750) * (data->bpp / 8);
+	*(unsigned int *)dst = pixel.colour;
+}
+
+void	pixel_put(t_pixel p1, t_pixel p2, t_img_data *data, t_draw *draw)
+{
+	while ((int)(p1.x - p2.x) || (int)(p1.y - p2.y))
+	{
+		my_mlx_pixel_put(data, p1);
+		draw->e2 = 2 * draw->err;
+		if (draw->e2 >= draw->y_move)
+		{
+			draw->err += draw->y_move;
+			p1.x += draw->sx;
+		}
+		if (draw->e2 <= draw->x_move)
+		{
+			draw->err += draw->x_move;
+			p1.y += draw->sy;
+		}
+	}
+}
 
 void	line_draw(t_pixel p1, t_pixel p2, t_img_data *data, t_map_data *map)
 {
@@ -58,4 +81,8 @@ void	line_draw(t_pixel p1, t_pixel p2, t_img_data *data, t_map_data *map)
 	iso_p1.z = p1.z;
 	iso_p2.z = p2.z;
 	draw = init_draw(iso_p1.x, iso_p2.x, iso_p1.y, iso_p2.y);
+	/*p1.colour = 0xFFFFFF
+	p2.colour = 0xFFFFFF*/
+	pixel_put(iso_p1, iso_p2, data, draw);
+	free(draw);
 }
