@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aapryce <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:57:40 by aapryce           #+#    #+#             */
-/*   Updated: 2024/01/26 21:43:59 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/01/29 13:49:56 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # include "../libft/libft.h"
 # include "minilibx-linux/mlx.h"
 # define BUFFER_SIZE 1
-# define WIN_HEIGHT 1000
-# define WIN_LENGTH 1000
+# define WIN_HEIGHT 2000
+# define WIN_LENGTH 3500
 # define ZOOM 1300
 
 typedef struct s_mlx
@@ -90,6 +90,14 @@ char	*ft_strchr(const char *str, int c);
 int		win_close(int keysym, t_mlx *data);
 int		close_button(t_mlx *data);
 void	init_mlx(t_img_data *data, t_map_data *map);
+
+void	map_draw(t_map_data *map, t_img_data *data);
+
+t_pixel	iso_layer(t_pixel pixel);
+t_draw	*init_draw(int x, int x1, int y, int y1);
+void	my_mlx_pixel_put(t_img_data *data, t_pixel pixel);
+void	pixel_put(t_pixel p1, t_pixel p2, t_img_data *data, t_draw *draw);
+void	line_draw(t_pixel p1, t_pixel p2, t_img_data *data, t_map_data *map);
 
 /*
 void	bresenham(float x, float y, float x1, float y1, t_map_data *data);

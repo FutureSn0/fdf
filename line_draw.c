@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line_draw.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aapryce <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 12:12:18 by aapryce           #+#    #+#             */
-/*   Updated: 2024/01/26 22:06:50 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/01/29 14:19:31 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_draw	*init_draw(int x, int x1, int y, int y1)
 
 	draw = (t_draw *)malloc(sizeof (t_draw));
 	if (!draw)
-		return ;
+		return (NULL);
 	draw->x_move = (float)(x1 - x);
 	draw->y_move = (float)(y1 - y);
 	draw->max = (int)fmax(fabs(draw->x_move), fabs(draw->y_move));
@@ -81,8 +81,8 @@ void	line_draw(t_pixel p1, t_pixel p2, t_img_data *data, t_map_data *map)
 	iso_p1.z = p1.z;
 	iso_p2.z = p2.z;
 	draw = init_draw(iso_p1.x, iso_p2.x, iso_p1.y, iso_p2.y);
-	/*p1.colour = 0xFFFFFF
-	p2.colour = 0xFFFFFF*/
+	p1.colour = 0xFFFFFF;
+	p2.colour = 0xFFFFFF;
 	pixel_put(iso_p1, iso_p2, data, draw);
 	free(draw);
 }
