@@ -6,25 +6,11 @@
 /*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 12:45:30 by aapryce           #+#    #+#             */
-/*   Updated: 2024/01/26 16:50:37 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/01/31 15:38:55 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-float	mod(float i)
-{
-	if (i < 0)
-		return (-i);
-	return (i);
-}
-
-float	ab(float a, float b)
-{
-	if (a > b)
-		return (a);
-	return (b);
-}
 
 size_t	ft_wrdlen(const char *s, char c)
 {
@@ -45,4 +31,17 @@ size_t	ft_wrdlen(const char *s, char c)
 			++s;
 	}
 	return (res);
+}
+
+void	free_grid(int **grid)
+{
+	int	i;
+
+	i = 0;
+	while (grid[i])
+	{
+		free(grid[i]);
+		i++;
+	}
+	free(grid);
 }

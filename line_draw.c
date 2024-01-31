@@ -6,7 +6,7 @@
 /*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 12:12:18 by aapryce           #+#    #+#             */
-/*   Updated: 2024/01/29 14:19:31 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/01/31 16:07:12 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ t_pixel	iso_layer(t_pixel pixel)
 {
 	t_pixel	new_pixel;
 
-	new_pixel.x = (pixel.x - pixel.y) * cos(0.8);
-	new_pixel.y = (pixel.x + pixel.y) * sin(0.8) - pixel.z;
+	new_pixel.x = (pixel.x - pixel.y) * cos(0.5);
+	new_pixel.y = (pixel.x + pixel.y) * sin(0.5) - pixel.z;
 	return (new_pixel);
 }
 
@@ -28,11 +28,17 @@ t_draw	*init_draw(int x, int x1, int y, int y1)
 	draw = (t_draw *)malloc(sizeof (t_draw));
 	if (!draw)
 		return (NULL);
-	draw->x_move = (float)(x1 - x);
-	draw->y_move = (float)(y1 - y);
-	draw->max = (int)fmax(fabs(draw->x_move), fabs(draw->y_move));
-	draw->x_move /= draw->max;
-	draw->y_move /= draw->max;
+	draw->x_move = fabs((float)(x1 - x));
+	draw->y_move = fabs((float)(y1 - y));
+	draw->err = draw->x_move - draw->y_move;
+	if ((x1 - x) > 0)
+		draw->sx = 1;
+	else
+		draw->sx = -1;
+	if ((y1 - y) > 0)
+		draw->sy = 1;
+	else
+		draw->sy = -1;
 	return (draw);
 }
 
@@ -47,19 +53,26 @@ void	my_mlx_pixel_put(t_img_data *data, t_pixel pixel)
 
 void	pixel_put(t_pixel p1, t_pixel p2, t_img_data *data, t_draw *draw)
 {
-	while ((int)(p1.x - p2.x) || (int)(p1.y - p2.y))
+	t_pixel	delta;
+	t_pixel	current;
+
+	current = p1;
+	delta.x = abs(p2.x - p1.x);
+	delta.y = abs(p2.y - p1.y);
+	while ((int)(current.x - p2.x) || (int)(current.y - p2.y))
 	{
-		my_mlx_pixel_put(data, p1);
+		current.colour = interpolate_colour(current, p1, p2, delta);
+		my_mlx_pixel_put(data, current);
 		draw->e2 = 2 * draw->err;
-		if (draw->e2 >= draw->y_move)
+		if (draw->e2 >= -draw->y_move)
 		{
-			draw->err += draw->y_move;
-			p1.x += draw->sx;
+			draw->err -= draw->y_move;
+			current.x += draw->sx;
 		}
 		if (draw->e2 <= draw->x_move)
 		{
 			draw->err += draw->x_move;
-			p1.y += draw->sy;
+			current.y += draw->sy;
 		}
 	}
 }
@@ -81,8 +94,8 @@ void	line_draw(t_pixel p1, t_pixel p2, t_img_data *data, t_map_data *map)
 	iso_p1.z = p1.z;
 	iso_p2.z = p2.z;
 	draw = init_draw(iso_p1.x, iso_p2.x, iso_p1.y, iso_p2.y);
-	p1.colour = 0xFFFFFF;
-	p2.colour = 0xFFFFFF;
+	iso_p1.colour = colour(p1.z);
+	iso_p2.colour = colour(p2.z);
 	pixel_put(iso_p1, iso_p2, data, draw);
 	free(draw);
 }
