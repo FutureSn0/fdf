@@ -6,7 +6,7 @@
 /*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 11:50:44 by aapryce           #+#    #+#             */
-/*   Updated: 2024/01/31 15:35:38 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/02/22 16:06:06 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ void	map_draw(t_map_data *map, t_img_data *data)
 {
 	int		x;
 	int		y;
-	t_pixel	p1;
-	t_pixel	p2;
 
 	y = 0;
 	while (y < map->y)

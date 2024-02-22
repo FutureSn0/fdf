@@ -1,27 +1,40 @@
 NAME = fdf
+LIBFT = libft/libft.a
+MINILIBX = minilibx-linux/libmlx_Linux.a
 
 CC = cc
-AR = ar
 CFLAGS = -Wextra -Wall -Werror
 RM = rm -f
 
 SRCS = fdf.c \
+       get_next_line.c \
+       get_next_line_utils.c \
+       init_mlx.c \
+       line_draw.c \
+       map_draw.c \
+       read_file.c \
+       utills.c \
+       colour.c \
+       hooks.c \
 
-OBJS = $(SRCS:.c=.o)
+OBJ = $(SRCS:.c=.o)
 
-INCLUDES = libft/libft.a minilibx-linux/libmlx-Linux.a
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(OBJ) -Lmlx_linux -lmlx_Linux -L/aapryce/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
-	$(AR) -rcs $@ $?
+$(NAME): $(OBJ) $(LIBFT) $(MINILIBX)
+	$(CC) $(CFLAGS) -lXext -lX11 -lm -lz -o $@ $(OBJ)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -I/aapryce/fdf/include -Iminilibx-linux -c $< -o $@
+$(LIBFT):
+	make -C libft
+
+$(MINILIBX):
+	make -C minilibx
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJ)
 
 fclean: clean
 	$(RM) $(NAME)

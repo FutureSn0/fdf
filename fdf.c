@@ -6,7 +6,7 @@
 /*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:15:44 by aapryce           #+#    #+#             */
-/*   Updated: 2024/01/31 13:56:34 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/02/22 12:18:03 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(int argc, char **argv)
 	t_map_data	*map;
 	t_img_data	data;
 
+	(void)argc;
 	if (!argv[1])
 		return (-1);
 	map = (t_map_data *)malloc(sizeof(t_map_data));
