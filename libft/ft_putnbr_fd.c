@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aapryce <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:21:24 by aapryce           #+#    #+#             */
-/*   Updated: 2023/04/18 14:17:31 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/02/27 15:13:06 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_putnbr_fd(int n, int fd)
 		write(fd, &c, 1);
 	}
 	else
-	{	
+	{
 		c = n + '0';
 		write(fd, &c, 1);
 	}

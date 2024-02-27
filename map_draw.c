@@ -6,7 +6,7 @@
 /*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 11:50:44 by aapryce           #+#    #+#             */
-/*   Updated: 2024/02/22 16:06:06 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/02/27 14:25:01 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	final_line(int x, t_img_data *data, t_map_data *map)
 	y = 0;
 	while (y <= map->y - 1)
 	{
-		line_draw((t_pixel){x, y}, (t_pixel){x, y + 1}, data, map);
+		line_draw((t_pixel){x, y, 0, 0}, (t_pixel){x, y + 1, 0, 0}, data, map);
 		y++;
 	}
 }
@@ -36,9 +36,11 @@ void	map_draw(t_map_data *map, t_img_data *data)
 		while (x < map->x)
 		{
 			if (x < map->x - 1)
-				line_draw((t_pixel){x, y}, (t_pixel){x + 1, y}, data, map);
+				line_draw((t_pixel){x, y, 0, 0},
+					(t_pixel){x + 1, y, 0, 0}, data, map);
 			if (y < map->y - 1)
-				line_draw((t_pixel){x, y}, (t_pixel){x, y + 1}, data, map);
+				line_draw((t_pixel){x, y, 0, 0},
+					(t_pixel){x, y + 1, 0, 0}, data, map);
 			x++;
 		}
 		y++;
