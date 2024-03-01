@@ -6,7 +6,7 @@
 /*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:57:40 by aapryce           #+#    #+#             */
-/*   Updated: 2024/01/31 15:51:44 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/03/01 14:14:54 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,6 @@
 # define BUFFER_SIZE 1
 # define WIN_HEIGHT 2000
 # define WIN_LENGTH 3500
-# define ZOOM 1600
-
-typedef struct s_mlx
-{
-	void	*mlx_ptr;
-	void	*win_ptr;
-}	t_mlx;
 
 typedef struct s_img_data
 {
@@ -44,6 +37,8 @@ typedef struct s_img_data
 	int		colour;
 	int		win_x;
 	int		win_y;
+	void	*mlx_ptr;
+	void	*win_ptr;
 }	t_img_data;
 
 typedef struct s_draw
@@ -87,8 +82,8 @@ char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strdup(const char *src);
 char	*ft_strchr(const char *str, int c);
 
-int		win_close(int keysym, t_mlx *data);
-int		close_button(t_mlx *data);
+int		win_close(int keysym, t_img_data *data);
+int		close_button(t_img_data *data);
 void	init_mlx(t_img_data *data, t_map_data *map);
 
 void	map_draw(t_map_data *map, t_img_data *data);
