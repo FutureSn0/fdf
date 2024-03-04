@@ -6,7 +6,7 @@
 /*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:40:07 by aapryce           #+#    #+#             */
-/*   Updated: 2024/03/04 14:03:25 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/03/04 14:18:18 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	init_mlx(t_img_data *data, t_map_data *map)
 			&data->line_len, &data->endian);
 	map_draw(map, data);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_ptr, 0, 0);
+	mlx_destroy_image(data->mlx_ptr, data->img_ptr);
 	mlx_key_hook(data->win_ptr, &win_close, data);
 	mlx_hook(data->win_ptr, 33, 0, &close_button, data);
 	free_grid(map->grid);
