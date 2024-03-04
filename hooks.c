@@ -32,14 +32,3 @@ int	win_close(int keysym, t_img_data *data)
 	}
 	return (0);
 }
-
-/*int	zoom(int keysym, t_mlx *data)
-{
-	if (keysym == XK_KP_Multiply)
-		data->zoom += 1;
-	if (keysym == XK_KP_Subtract)
-		data->zoom -= 1;
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
-	map_draw(data);
-	return (0);
-}*/
