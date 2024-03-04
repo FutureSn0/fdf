@@ -6,7 +6,7 @@
 /*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:15:44 by aapryce           #+#    #+#             */
-/*   Updated: 2024/02/22 12:18:03 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/03/04 14:03:27 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ int	main(int argc, char **argv)
 		return (-1);
 	read_file(argv[1], map);
 	init_mlx(&data, map);
-	free_grid(map->grid);
 	return (0);
 }
