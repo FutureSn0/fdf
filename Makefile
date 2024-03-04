@@ -25,7 +25,7 @@ OBJ = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT) $(MINILIBX)
-	$(CC) $(CFLAGS) -lXext -lX11 -lm -lz -o $@ $(OBJ) $(LIBFT) $(MINILIBX)
+	$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIBFT) $(MINILIBX) -lXext -lX11 -lm -lz
 
 $(LIBFT):
 	make -C libft
