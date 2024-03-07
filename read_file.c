@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aapryce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 10:30:38 by aapryce           #+#    #+#             */
-/*   Updated: 2024/01/26 14:03:22 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/03/07 20:14:44 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	get_width(char *file)
 
 	fd = open(file, O_RDONLY);
 	line = get_next_line(fd);
-	width = ft_wrdlen(line, ' ');
+	width = (ft_wrdlen(line, ' ') - 1);
 	free(line);
 	close(fd);
 	return (width);

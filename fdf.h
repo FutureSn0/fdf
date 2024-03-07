@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aapryce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:57:40 by aapryce           #+#    #+#             */
-/*   Updated: 2024/03/01 14:14:54 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/03/07 20:28:20 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <math.h>
 # include <X11/keysym.h>
 # include <X11/X.h>
-# include "../libft/libft.h"
+# include "libft/libft.h"
 # include "minilibx-linux/mlx.h"
 # define BUFFER_SIZE 1
 # define WIN_HEIGHT 2000
