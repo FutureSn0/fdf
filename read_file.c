@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aapryce <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 10:30:38 by aapryce           #+#    #+#             */
-/*   Updated: 2024/03/07 20:14:44 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/03/08 13:00:06 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	read_file(char *file, t_map_data *data)
 	int		fd;
 	int		i;
 
+	check_fd(file, data);
 	data->y = get_height(file);
 	data->x = get_width(file);
 	data->grid = (int **)malloc(sizeof(int *) * (data->y + 1));

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aapryce <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:57:40 by aapryce           #+#    #+#             */
-/*   Updated: 2024/03/07 20:28:20 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/03/08 13:00:28 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ typedef struct s_pixel
 }	t_pixel;
 
 void	read_file(char *file, t_map_data *data);
+void	check_fd(char *file, t_map_data *data);
 int		get_height(char *file);
 int		get_width(char *file);
 void	fill_z(int *z_line, char *line);
