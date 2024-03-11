@@ -6,7 +6,7 @@
 /*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 12:12:18 by aapryce           #+#    #+#             */
-/*   Updated: 2024/03/11 13:41:53 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/03/11 14:01:16 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	line_draw(t_pixel p1, t_pixel p2, t_img_data *data, t_map_data *map)
 	t_pixel	iso_p1;
 	t_pixel	iso_p2;
 
-	data->zoom = 1600;
+	data->zoom = 1500;
 	p1.z = map->grid[p1.y][p1.x];
 	p2.z = map->grid[p2.y][p2.x];
 	p1.x *= data->zoom / map->x;
