@@ -6,7 +6,7 @@
 /*   By: aapryce <aapryce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:57:40 by aapryce           #+#    #+#             */
-/*   Updated: 2024/03/08 13:00:28 by aapryce          ###   ########.fr       */
+/*   Updated: 2024/03/11 13:39:57 by aapryce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include "libft/libft.h"
 # include "minilibx-linux/mlx.h"
 # define BUFFER_SIZE 1
-# define WIN_HEIGHT 2000
+# define WIN_HEIGHT 2200
 # define WIN_LENGTH 3500
 
 typedef struct s_img_data
@@ -35,8 +35,6 @@ typedef struct s_img_data
 	int		endian;
 	float	zoom;
 	int		colour;
-	int		win_x;
-	int		win_y;
 	void	*mlx_ptr;
 	void	*win_ptr;
 }	t_img_data;
