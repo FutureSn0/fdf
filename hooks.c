@@ -28,7 +28,7 @@ int	win_close(int keysym, t_img_data *data)
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 		mlx_destroy_display(data->mlx_ptr);
 		free(data->mlx_ptr);
-		exit(1);
+		exit(0);
 	}
 	return (0);
 }
