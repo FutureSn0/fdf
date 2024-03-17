@@ -41,7 +41,6 @@ typedef struct s_img_data
 
 typedef struct s_draw
 {
-	int		max;
 	int		sx;
 	int		sy;
 	int		err;
