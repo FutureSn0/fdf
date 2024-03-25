@@ -27,7 +27,7 @@ make
 
 Additional makefile rules
 
-`make` - Compile ft_printf files.
+`make` - Compile fdf program.
 
 `make clean` - Delete all .o (object files) files.
 
